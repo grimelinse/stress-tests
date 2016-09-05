@@ -1,1 +1,2 @@
-# stress-tests
+# Media server stress test.
+The project in progress.
