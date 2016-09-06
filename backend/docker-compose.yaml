@@ -1,20 +1,5 @@
 version: '2'
 services:
-  node-exporter:
-    image: prom/node-exporter
-    container_name: node-exporter
-    expose:
-      - 9100
-  cadvisor:
-    image: google/cadvisor
-    container_name: google_advisor
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-    expose:
-      - 8080
   prometheus:
     build:
       context: ./prometheus
@@ -27,10 +12,6 @@ services:
       - '-storage.local.path=/prometheus'
     expose:
       - 9090
-    links:
-      - cadvisor:cadvisor
-    depends_on:
-      - cadvisor
   grafana:
     build:
       context: ./grafana
@@ -38,7 +19,6 @@ services:
     image: grafana
     depends_on:
       - prometheus
-      - cadvisor
     ports:
       - 3000:3000
     volumes:
