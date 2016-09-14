@@ -1,0 +1,18 @@
+{
+  "type": "panel",
+  "name": "Stress test",
+  "id": "grafana-stress-test-panel",
+
+  "info": {
+    "description": "Stress test control panel",
+    "author": {
+      "name": "Instrumentisto",
+      "url": "https://github.com/instrumentisto"
+    },
+    "keywords": ["media-server","stress-test", "panel"]
+  },
+  "dependencies": {
+    "grafanaVersion": "3.x.x",
+    "plugins": [ ]
+  }
+}

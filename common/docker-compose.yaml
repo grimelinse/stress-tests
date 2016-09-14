@@ -1,0 +1,22 @@
+version: '2'
+services:
+  node-exporter:
+    image: prom/node-exporter
+    container_name: node-exporter
+    ports:
+      - '9100:9100'
+  cadvisor:
+    image: google/cadvisor
+    container_name: google_advisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - '8080:8080'
+  stress-test-client:
+    image: quay.io/instrumentisto/rtmp-bot
+    container_name: stress-test-client
+    ports:
+      - '9132:9132'

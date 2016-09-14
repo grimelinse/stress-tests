@@ -10,8 +10,15 @@ services:
     command:
       - '-config.file=/etc/prometheus/prometheus.yml'
       - '-storage.local.path=/prometheus'
-    expose:
-      - 9090
+    ports:
+      - '9090:9090'
+  stress-test-panel:
+    build:
+      context: ./stress-test-panel
+    image: stress-test-panel
+    container_name: stress-test-panel
+    environment:
+      - REDIS_CLIENT_URL=http://192.168.99.100:8083
   grafana:
     build:
       context: ./grafana
@@ -20,16 +27,34 @@ services:
     depends_on:
       - prometheus
     ports:
-      - 3000:3000
+      - '3000:3000'
     volumes:
       - grafana_data:/var/lib/grafana
+    volumes_from:
+      - stress-test-panel
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
       - GF_USERS_ALLOW_SIGN_UP=false
       - GF_DASHBOARDS_JSON_ENABLED=true
-      - GF_DASHBOARDS_JSON_PATH=/var/lib/grafana/dashboards/docker-dashboard_rev5.json
+      - GF_DASHBOARDS_JSON_PATH=/var/lib/grafana/dashboards/stress_test.json
     links:
       - prometheus:prometheus
+  redis-client:
+    build:
+      context: ./redis-client
+    image: redis-client
+    container_name: redis-client
+    ports:
+      - '8083:8083'
+    links:
+      - redis_db:redis
+    command: [go-wrapper, run, -redis, 'redis:6379']
+
+  redis_db:
+      image: redis
+      container_name: redis-server
+      ports:
+        - '6379:6379'
 volumes:
   prometheus_data: {}
   grafana_data: {}

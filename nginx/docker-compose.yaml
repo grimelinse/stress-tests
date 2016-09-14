@@ -1,0 +1,27 @@
+version: '2'
+services:
+  nginx_server:
+    container_name: "nginx_server"
+    image: jasonrivers/nginx-rtmp
+    expose:
+      - 1935
+  stress:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: stress-test-client
+    links:
+      - nginx_server:rtmp_server
+    command: [go-wrapper,
+              run,
+              -flv_file,
+              /opt/video/big_buck_bunny_720p_2mb.flv,
+              -server, nginx_rtmp, -redis ,
+              "192.168.99.100:6379"]
+  cadvisor:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: cadvisor
+  node-exporter:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: node-exporter

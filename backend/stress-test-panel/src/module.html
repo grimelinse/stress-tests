@@ -1,0 +1,59 @@
+<div>
+    <div>
+        <label id="status"
+               class="gf-form-label"
+               ng_model="status">{{status}}
+        </label>
+
+        <form role="form"
+              id="start_form"
+              class="gf-form">
+            <div class="gf-form-group gf-form-inline">
+                <label for="server">Media server URL:</label>
+                <input type="text"
+                       class="gf-form-input"
+                       id="server"
+                       ng-disabled="status_id != 0"
+                       ng-model="stress_test.server"
+                       placeholder="Enter server address"/>
+            </div>
+            <div class="gf-form-group gf-form-inline">
+                <label for="model_count">Count of model bots:</label>
+                <input type="number"
+                       class="gf-form-input"
+                       id="model_count"
+                       ng-model="stress_test.model_count"
+                       min="1"
+                       ng-disabled="status_id != 0"
+                       max="100"/>
+            </div>
+            <div class="gf-form-group gf-form-inline">
+                <label for="client_count">Count of client bots:</label>
+                <input type="number"
+                       class="gf-form-input"
+                       id="client_count"
+                       ng-model="stress_test.client_count"
+                       min="1"
+                       ng-disabled="status_id != 0"
+                       max="100"/>
+            </div>
+        </form>
+        <div class="gf-form-group">
+            <button type="button"
+                    class="btn-inverse"
+                    ng-disabled="status_id != 0"
+                    ng-click="ctrl.startTest()"
+                    id="start_test">Start test
+            </button>
+            <button type="button"
+                    class="btn-inverse"
+                    ng-disabled="status_id == 0 || status_id == 2"
+                    ng-click="ctrl.stopTest()"
+                    id="stop_test">Stop test
+            </button>
+        </div>
+    </div>
+</div>
+
+
+

@@ -22,4 +22,4 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-         - targets: ['localhost:9090']
+         - targets: ['192.168.99.101:9100','192.168.99.101:8080','192.168.99.101:9132']
