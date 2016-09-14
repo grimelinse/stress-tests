@@ -295,6 +295,13 @@
               "legendFormat": "{{name}}",
               "refId": "A",
               "step": 2
+            },
+            {
+              "expr": "sort_desc(sum(rate(container_cpu_user_seconds_total{name=\"ams_server\"}[1m])) by (name))",
+              "intervalFactor": 2,
+              "refId": "B",
+              "step": 2,
+              "legendFormat": "{{name}}"
             }
           ],
           "thresholds": [],
@@ -343,6 +350,7 @@
           "aliasColors": {},
           "bars": false,
           "datasource": "Prometheus",
+          "decimals": 2,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -375,9 +383,16 @@
             {
               "expr": "sort_desc(sum(container_memory_usage_bytes{name=\"nginx_server\"}) by (name))",
               "intervalFactor": 2,
-              "legendFormat": "nginx-rtmp-module",
+              "legendFormat": "{{name}}",
               "refId": "A",
               "step": 2
+            },
+            {
+              "expr": "sort_desc(sum(container_memory_usage_bytes{name=\"ams_server\"}) by (name))",
+              "intervalFactor": 2,
+              "refId": "B",
+              "step": 2,
+              "legendFormat": "{{name}}"
             }
           ],
           "thresholds": [],
@@ -411,8 +426,7 @@
               "min": null,
               "show": true
             }
-          ],
-          "decimals": 2
+          ]
         }
       ],
       "title": "CPU usage"
@@ -474,6 +488,13 @@
               "metric": "container_cpu_usage_seconds_totalco",
               "refId": "A",
               "step": 2
+            },
+            {
+              "expr": "ams_model_connected+ams_clients_connected",
+              "intervalFactor": 2,
+              "refId": "B",
+              "step": 2,
+              "legendFormat": "adobe-media-server"
             }
           ],
           "thresholds": [],
@@ -558,6 +579,13 @@
               "metric": "nginx_rtmp_client_failures",
               "refId": "A",
               "step": 2
+            },
+            {
+              "expr": "ams_failure_models+ams_client_failures",
+              "intervalFactor": 2,
+              "refId": "B",
+              "step": 2,
+              "legendFormat": "adobe-media-server"
             }
           ],
           "thresholds": [],
@@ -652,6 +680,13 @@
               "metric": "nginx_rtmp_total_model_fps",
               "refId": "A",
               "step": 2
+            },
+            {
+              "expr": "ams_total_model_fps",
+              "intervalFactor": 2,
+              "refId": "B",
+              "step": 2,
+              "legendFormat": "adobe-media-server"
             }
           ],
           "thresholds": [],
@@ -736,6 +771,13 @@
               "metric": "nginx_rtmp_total_client_fps",
               "refId": "A",
               "step": 2
+            },
+            {
+              "expr": "ams_total_client_fps",
+              "intervalFactor": 2,
+              "refId": "B",
+              "step": 2,
+              "legendFormat": "adobe-media-server"
             }
           ],
           "thresholds": [],
@@ -828,6 +870,13 @@
               "metric": "nginx_rtmp_average_video_time_received",
               "refId": "A",
               "step": 2
+            },
+            {
+              "expr": "ams_average_video_time_published -ams_average_video_time_received",
+              "intervalFactor": 2,
+              "refId": "B",
+              "step": 2,
+              "legendFormat": "adobe-media-server"
             }
           ],
           "thresholds": [],
@@ -911,6 +960,13 @@
               "metric": "nginx_rtmp_audio_bytes_received",
               "refId": "A",
               "step": 2
+            },
+            {
+              "expr": "ams_video_bytes_sends - ams_audio_bytes_received",
+              "intervalFactor": 2,
+              "refId": "B",
+              "step": 2,
+              "legendFormat": "adobe-media-server"
             }
           ],
           "thresholds": [],
@@ -994,6 +1050,13 @@
               "metric": "nginx_rtmp_audio_bytes_received",
               "refId": "A",
               "step": 2
+            },
+            {
+              "expr": "ams_audio_bytes_sends - ams_audio_bytes_received",
+              "intervalFactor": 2,
+              "refId": "B",
+              "step": 2,
+              "legendFormat": "adobe-media-server"
             }
           ],
           "thresholds": [],

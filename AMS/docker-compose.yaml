@@ -1,0 +1,32 @@
+version: '2'
+services:
+  ams_server:
+    container_name: "ams_server"
+    image: "ams"
+    build:
+      context: ./
+    ports:
+      - '1935:1935'
+      - '1111:1111'
+      - '80:80'
+      - '443:443'
+  stress:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: stress-test-client
+    links:
+      - ams_server:rtmp_server
+    command: [go-wrapper,
+              run,
+              -flv_file,
+              /opt/video/big_buck_bunny_720p_2mb.flv,
+              -server, ams, -redis ,
+              "192.168.99.100:6379"]
+  cadvisor:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: cadvisor
+  node-exporter:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: node-exporter
