@@ -299,7 +299,14 @@
             {
               "expr": "sort_desc(sum(rate(container_cpu_user_seconds_total{name=\"ams_server\"}[1m])) by (name))",
               "intervalFactor": 2,
+              "legendFormat": "{{name}}",
               "refId": "B",
+              "step": 2
+            },
+            {
+              "expr": "sort_desc(sum(rate(container_cpu_user_seconds_total{name=\"wowza\"}[1m])) by (name))",
+              "intervalFactor": 2,
+              "refId": "C",
               "step": 2,
               "legendFormat": "{{name}}"
             }
@@ -390,7 +397,14 @@
             {
               "expr": "sort_desc(sum(container_memory_usage_bytes{name=\"ams_server\"}) by (name))",
               "intervalFactor": 2,
+              "legendFormat": "{{name}}",
               "refId": "B",
+              "step": 2
+            },
+            {
+              "expr": "sort_desc(sum(container_memory_usage_bytes{name=\"wowza\"}) by (name))",
+              "intervalFactor": 2,
+              "refId": "C",
               "step": 2,
               "legendFormat": "{{name}}"
             }
@@ -492,9 +506,16 @@
             {
               "expr": "ams_model_connected+ams_clients_connected",
               "intervalFactor": 2,
+              "legendFormat": "adobe-media-server",
               "refId": "B",
+              "step": 2
+            },
+            {
+              "expr": "wowza_model_connected+wowza_clients_connected",
+              "intervalFactor": 2,
+              "refId": "C",
               "step": 2,
-              "legendFormat": "adobe-media-server"
+              "legendFormat": "wowza"
             }
           ],
           "thresholds": [],
@@ -583,9 +604,16 @@
             {
               "expr": "ams_failure_models+ams_client_failures",
               "intervalFactor": 2,
+              "legendFormat": "adobe-media-server",
               "refId": "B",
+              "step": 2
+            },
+            {
+              "expr": "wowza_failure_models+wowza_client_failures",
+              "intervalFactor": 2,
+              "refId": "C",
               "step": 2,
-              "legendFormat": "adobe-media-server"
+              "legendFormat": "wowza"
             }
           ],
           "thresholds": [],
@@ -684,9 +712,16 @@
             {
               "expr": "ams_total_model_fps",
               "intervalFactor": 2,
+              "legendFormat": "adobe-media-server",
               "refId": "B",
+              "step": 2
+            },
+            {
+              "expr": "wowza_total_model_fps",
+              "intervalFactor": 2,
+              "refId": "C",
               "step": 2,
-              "legendFormat": "adobe-media-server"
+              "legendFormat": "wowza"
             }
           ],
           "thresholds": [],
@@ -775,9 +810,16 @@
             {
               "expr": "ams_total_client_fps",
               "intervalFactor": 2,
+              "legendFormat": "adobe-media-server",
               "refId": "B",
+              "step": 2
+            },
+            {
+              "expr": "wowza_total_client_fps",
+              "intervalFactor": 2,
+              "refId": "C",
               "step": 2,
-              "legendFormat": "adobe-media-server"
+              "legendFormat": "wowza"
             }
           ],
           "thresholds": [],
@@ -874,9 +916,16 @@
             {
               "expr": "ams_average_video_time_published -ams_average_video_time_received",
               "intervalFactor": 2,
+              "legendFormat": "adobe-media-server",
               "refId": "B",
+              "step": 2
+            },
+            {
+              "expr": "wowza_average_video_time_published - wowza_average_video_time_received",
+              "intervalFactor": 2,
+              "refId": "C",
               "step": 2,
-              "legendFormat": "adobe-media-server"
+              "legendFormat": "wowza"
             }
           ],
           "thresholds": [],
@@ -964,9 +1013,16 @@
             {
               "expr": "ams_video_bytes_sends - ams_audio_bytes_received",
               "intervalFactor": 2,
+              "legendFormat": "adobe-media-server",
               "refId": "B",
+              "step": 2
+            },
+            {
+              "expr": "wowza_video_bytes_sends - wowza_audio_bytes_received",
+              "intervalFactor": 2,
+              "refId": "C",
               "step": 2,
-              "legendFormat": "adobe-media-server"
+              "legendFormat": "wowza"
             }
           ],
           "thresholds": [],
@@ -1054,9 +1110,16 @@
             {
               "expr": "ams_audio_bytes_sends - ams_audio_bytes_received",
               "intervalFactor": 2,
+              "legendFormat": "adobe-media-server",
               "refId": "B",
+              "step": 2
+            },
+            {
+              "expr": "wowza_audio_bytes_sends - wowza_audio_bytes_received",
+              "intervalFactor": 2,
+              "refId": "C",
               "step": 2,
-              "legendFormat": "adobe-media-server"
+              "legendFormat": "wowza"
             }
           ],
           "thresholds": [],
