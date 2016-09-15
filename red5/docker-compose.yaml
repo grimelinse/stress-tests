@@ -1,27 +1,22 @@
 version: '2'
 services:
-  wowza:
-    container_name: "wowza"
-    image: sameersbn/wowza:4.1.2-8
-    environment:
-      - WOWZA_ACCEPT_LICENSE=yes
-      - WOWZA_KEY=EDEV4-JkQHJ-eEVxc-7Q8xz-jrmHE-PDVxC-8uDTfjWW4XxK
+  red5:
+    container_name: "red5"
+    image: mondain/red5
     ports:
       - "1935:1935"
-      - "8086:8086"
-      - "8087:8087"
-      - "8088:8088"
+      - "5080:5080"
   stress:
     extends:
       file: ../common/docker-compose.yaml
       service: stress-test-client
     links:
-      - wowza:rtmp_server
+      - red5:rtmp_server
     command: [go-wrapper,
               run,
               -flv_file,
               /opt/video/big_buck_bunny_720p_2mb.flv,
-              -server, wowza, -redis ,
+              -server, red5, -redis ,
               "192.168.99.100:6379"]
   cadvisor:
     extends:
