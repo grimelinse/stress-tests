@@ -313,9 +313,9 @@
             {
               "expr": "sort_desc(sum(rate(container_cpu_user_seconds_total{name=\"red5\"}[1m])) by (name))",
               "intervalFactor": 2,
+              "legendFormat": "{{name}}",
               "refId": "D",
-              "step": 2,
-              "legendFormat": "{{name}}"
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -418,9 +418,9 @@
             {
               "expr": "sort_desc(sum(container_memory_usage_bytes{name=\"red5\"}) by (name))",
               "intervalFactor": 2,
+              "legendFormat": "{{name}}",
               "refId": "D",
-              "step": 2,
-              "legendFormat": "{{name}}"
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -534,9 +534,9 @@
             {
               "expr": "red5_model_connected+red5_clients_connected",
               "intervalFactor": 2,
+              "legendFormat": "red5",
               "refId": "D",
-              "step": 2,
-              "legendFormat": "red5"
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -639,9 +639,9 @@
             {
               "expr": "red5_failure_models+red5_client_failures",
               "intervalFactor": 2,
+              "legendFormat": "red5",
               "refId": "D",
-              "step": 2,
-              "legendFormat": "red5"
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -675,7 +675,8 @@
               "min": 0,
               "show": true
             }
-          ]
+          ],
+          "decimals": 0
         }
       ],
       "title": "CPU row"
@@ -754,9 +755,9 @@
             {
               "expr": "red5_total_model_fps",
               "intervalFactor": 2,
+              "legendFormat": "red5",
               "refId": "D",
-              "step": 2,
-              "legendFormat": "red5"
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -859,9 +860,9 @@
             {
               "expr": "red5_total_client_fps",
               "intervalFactor": 2,
+              "legendFormat": "red5",
               "refId": "D",
-              "step": 2,
-              "legendFormat": "red5"
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -972,9 +973,9 @@
             {
               "expr": "red5_average_video_time_published - red5_average_video_time_received",
               "intervalFactor": 2,
+              "legendFormat": "red5",
               "refId": "D",
-              "step": 2,
-              "legendFormat": "red5"
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -1076,9 +1077,9 @@
             {
               "expr": "red5_video_bytes_sends - red5_audio_bytes_received",
               "intervalFactor": 2,
+              "legendFormat": "red5",
               "refId": "D",
-              "step": 2,
-              "legendFormat": "red5"
+              "step": 2
             }
           ],
           "thresholds": [],
@@ -1180,9 +1181,9 @@
             {
               "expr": "red5_audio_bytes_sends - red5_audio_bytes_received",
               "intervalFactor": 2,
+              "legendFormat": "red5",
               "refId": "D",
-              "step": 2,
-              "legendFormat": "red5"
+              "step": 2
             }
           ],
           "thresholds": [],

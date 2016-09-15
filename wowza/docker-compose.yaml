@@ -5,7 +5,7 @@ services:
     image: sameersbn/wowza:4.1.2-8
     environment:
       - WOWZA_ACCEPT_LICENSE=yes
-      - WOWZA_KEY=EDEV4-JkQHJ-eEVxc-7Q8xz-jrmHE-PDVxC-8uDTfjWW4XxK
+      - WOWZA_KEY=
     ports:
       - "1935:1935"
       - "8086:8086"
