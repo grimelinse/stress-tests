@@ -5,7 +5,7 @@ services:
     image: sameersbn/wowza:4.1.2-8
     environment:
       - WOWZA_ACCEPT_LICENSE=yes
-      - WOWZA_KEY=
+      - WOWZA_KEY=[wowza dev key]
     ports:
       - "1935:1935"
       - "8086:8086"
@@ -20,9 +20,9 @@ services:
     command: [go-wrapper,
               run,
               -flv_file,
-              /opt/video/big_buck_bunny_720p_2mb.flv,
+              /opt/video/sample.flv,
               -server, wowza, -redis ,
-              "192.168.99.100:6379"]
+              "[redis db ip]:[redis db port]"]
   cadvisor:
     extends:
       file: ../common/docker-compose.yaml

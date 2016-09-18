@@ -108,7 +108,7 @@ func getStatus(w http.ResponseWriter, r *http.Request) {
 	for key, value := range stress_test_map {
 		log.Printf("server: %s status: %s", key, value)
 		if value != "ready" {
-			fmt.Fprintln(w, model.GetResponse(2))
+			fmt.Fprintln(w, model.GetResponse(1))
 			return
 		}
 	}

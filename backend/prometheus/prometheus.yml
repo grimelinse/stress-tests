@@ -22,15 +22,21 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-         - targets: ['192.168.99.101:9100',
-                      '192.168.99.101:8080',
-                      '192.168.99.101:9132',
-                      '192.168.99.103:9100',
-                      '192.168.99.103:8080',
-                      '192.168.99.103:9132',
-                      '192.168.99.104:9100',
-                      '192.168.99.104:8080',
-                      '192.168.99.104:9132',
-                      '192.168.99.106:9100',
-                      '192.168.99.106:8080',
-                      '192.168.99.106:9132']
+         - targets: [
+                      # NGINX RTMP MODULE
+                      '[node-exporter IP]:[node-exporter port]',
+                      '[advisor ip]:[advisor port]',
+                      '[stress test ip]:[stress test port]',
+                      # AMS
+                      '[node-exporter IP]:[node-exporter port]',
+                      '[advisor ip]:[advisor port]',
+                      '[stress test ip]:[stress test port]',
+                      # WOWZA
+                      '[node-exporter IP]:[node-exporter port]',
+                      '[advisor ip]:[advisor port]',
+                      '[stress test ip]:[stress test port]',
+                      # RED5
+                      '[node-exporter IP]:[node-exporter port]',
+                      '[advisor ip]:[advisor port]',
+                      '[stress test ip]:[stress test port]',
+                      ]

@@ -19,9 +19,9 @@ services:
     command: [go-wrapper,
               run,
               -flv_file,
-              /opt/video/big_buck_bunny_720p_2mb.flv,
+              /opt/video/sample.flv,
               -server, ams, -redis ,
-              "192.168.99.100:6379"]
+              "[prometheus droplet IP]:[redis db port]"]
   cadvisor:
     extends:
       file: ../common/docker-compose.yaml

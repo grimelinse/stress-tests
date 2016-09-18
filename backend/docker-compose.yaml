@@ -18,7 +18,7 @@ services:
     image: stress-test-panel
     container_name: stress-test-panel
     environment:
-      - REDIS_CLIENT_URL=http://192.168.99.100:8083
+      - REDIS_CLIENT_URL=http://[redis client ip]:[redis client port]
   grafana:
     build:
       context: ./grafana

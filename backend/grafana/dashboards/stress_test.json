@@ -86,9 +86,9 @@
           "decimals": 0,
           "editable": true,
           "error": false,
-          "format": "short",
+          "format": "none",
           "gauge": {
-            "maxValue": 100,
+            "maxValue": null,
             "minValue": 0,
             "show": false,
             "thresholdLabels": false,
@@ -266,7 +266,7 @@
           "isNew": true,
           "legend": {
             "alignAsTable": true,
-            "avg": false,
+            "avg": true,
             "current": true,
             "hideEmpty": true,
             "hideZero": false,
@@ -372,7 +372,7 @@
           "isNew": true,
           "legend": {
             "alignAsTable": true,
-            "avg": false,
+            "avg": true,
             "current": true,
             "hideEmpty": true,
             "max": true,
@@ -585,6 +585,7 @@
           "aliasColors": {},
           "bars": false,
           "datasource": "Prometheus",
+          "decimals": 0,
           "editable": true,
           "error": false,
           "fill": 1,
@@ -660,7 +661,7 @@
           },
           "yaxes": [
             {
-              "format": "short",
+              "format": "none",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -668,15 +669,14 @@
               "show": true
             },
             {
-              "format": "short",
+              "format": "none",
               "label": null,
               "logBase": 1,
               "max": null,
               "min": 0,
               "show": true
             }
-          ],
-          "decimals": 0
+          ]
         }
       ],
       "title": "CPU row"
@@ -707,12 +707,12 @@
           "isNew": true,
           "legend": {
             "alignAsTable": true,
-            "avg": false,
+            "avg": true,
             "current": true,
             "hideEmpty": true,
             "hideZero": false,
-            "max": true,
-            "min": true,
+            "max": false,
+            "min": false,
             "show": true,
             "total": false,
             "values": true
@@ -813,11 +813,11 @@
           "isNew": true,
           "legend": {
             "alignAsTable": true,
-            "avg": false,
+            "avg": true,
             "current": true,
             "hideEmpty": true,
-            "max": true,
-            "min": true,
+            "max": false,
+            "min": false,
             "show": true,
             "total": false,
             "values": true
@@ -926,10 +926,10 @@
           "isNew": true,
           "legend": {
             "alignAsTable": true,
-            "avg": false,
+            "avg": true,
             "current": true,
-            "max": true,
-            "min": true,
+            "max": false,
+            "min": false,
             "rightSide": false,
             "show": true,
             "total": false,

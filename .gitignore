@@ -2,3 +2,6 @@
 */**.iml
 *.iml
 AMS/serial_key
+**/*.dev
+out
+common/bot

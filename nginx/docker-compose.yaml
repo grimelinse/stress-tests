@@ -14,9 +14,9 @@ services:
     command: [go-wrapper,
               run,
               -flv_file,
-              /opt/video/big_buck_bunny_720p_2mb.flv,
+              /opt/video/sample.flv,
               -server, nginx_rtmp, -redis ,
-              "192.168.99.100:6379"]
+              "[redis db ip]:[rdis db port]"]
   cadvisor:
     extends:
       file: ../common/docker-compose.yaml
