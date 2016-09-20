@@ -135,7 +135,7 @@
               "expr": "nginx_rtmp_total_clients",
               "intervalFactor": 2,
               "legendFormat": "total",
-              "metric": "nginx_rtmp_total_clients",
+              "metric": "red5_total_clients",
               "refId": "A",
               "step": 4
             }
@@ -246,15 +246,413 @@
       "height": "250px",
       "panels": [
         {
-          "alert": {
-            "crit": {
-              "op": ">"
-            },
-            "warn": {
-              "op": ">"
-            }
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "datasource": "Prometheus",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 1,
+            "minValue": 0,
+            "show": true,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
           },
-          "alerting": {},
+          "id": 20,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 3,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "expr": "sum(rate(container_cpu_usage_seconds_total{name=\"nginx_server\"} [1m]))",
+              "intervalFactor": 2,
+              "refId": "A",
+              "step": 4
+            }
+          ],
+          "thresholds": "",
+          "title": "NGINX",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(45, 54, 172, 0.97)"
+          ],
+          "datasource": "Prometheus",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 1,
+            "minValue": 0,
+            "show": true,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 21,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 3,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "expr": "sum(rate(container_cpu_usage_seconds_total{name=\"ams_server\"} [1m]))",
+              "intervalFactor": 2,
+              "refId": "A",
+              "step": 4
+            }
+          ],
+          "thresholds": "",
+          "title": "AMS",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 209, 8, 0.89)",
+            "rgba(207, 86, 13, 0.97)"
+          ],
+          "datasource": "Prometheus",
+          "editable": true,
+          "error": false,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 1,
+            "minValue": 0,
+            "show": true,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 22,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 3,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "expr": "sum(rate(container_cpu_usage_seconds_total{name=\"wowza\"} [1m]))",
+              "intervalFactor": 2,
+              "refId": "A",
+              "step": 4
+            }
+          ],
+          "thresholds": "",
+          "title": "Wowza",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(244, 5, 5, 0.97)"
+          ],
+          "datasource": "Prometheus",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 1,
+            "minValue": 0,
+            "show": true,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 23,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 3,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "expr": "sum(rate(container_cpu_usage_seconds_total{name=\"red5\"} [1m]))",
+              "intervalFactor": 2,
+              "refId": "A",
+              "step": 4
+            }
+          ],
+          "thresholds": "",
+          "title": "Red5",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        }
+      ],
+      "showTitle": true,
+      "title": "CPU Usage"
+    },
+    {
+      "title": "New row",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Total CPU per instance",
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "graph",
+          "isNew": true,
+          "id": 31,
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "100 - (avg by (instance) (irate(node_cpu{job=\"prometheus\",mode=\"idle\"}[5m])) * 100)",
+              "intervalFactor": 2,
+              "step": 2,
+              "legendFormat": "{{instance}}"
+            }
+          ],
+          "datasource": "Prometheus",
+          "renderer": "flot",
+          "yaxes": [
+            {
+              "label": null,
+              "show": true,
+              "logBase": 1,
+              "min": null,
+              "max": null,
+              "format": "short"
+            },
+            {
+              "label": null,
+              "show": true,
+              "logBase": 1,
+              "min": null,
+              "max": null,
+              "format": "short"
+            }
+          ],
+          "xaxis": {
+            "show": true
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 2,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": true,
+            "total": false,
+            "avg": true,
+            "alignAsTable": true,
+            "rightSide": true
+          },
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true,
+            "sort": 0,
+            "msResolution": true
+          },
+          "timeFrom": null,
+          "timeShift": null,
+          "aliasColors": {
+            "45.55.147.128:9100": "#BF1B00",
+            "104.131.34.198:9100": "#508642",
+            "104.131.26.227:9100": "#1F78C1",
+            "104.131.2.244:9100": "#C15C17"
+          },
+          "seriesOverrides": [],
+          "thresholds": [],
+          "links": []
+        }
+      ]
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
           "aliasColors": {},
           "bars": false,
           "datasource": "Prometheus",
@@ -262,16 +660,14 @@
           "editable": true,
           "error": false,
           "fill": 1,
-          "id": 1,
+          "id": 16,
           "isNew": true,
           "legend": {
             "alignAsTable": true,
             "avg": true,
             "current": true,
-            "hideEmpty": true,
-            "hideZero": false,
-            "max": true,
-            "min": true,
+            "max": false,
+            "min": false,
             "show": true,
             "total": false,
             "values": true
@@ -285,43 +681,22 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 6,
+          "span": 3,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sort_desc(sum(rate(container_cpu_user_seconds_total{name=\"nginx_server\"}[1m])) by (name))",
+              "expr": "sum(container_memory_usage_bytes{name='nginx_server'})/sum(container_memory_usage_bytes)*100",
               "intervalFactor": 2,
-              "legendFormat": "{{name}}",
+              "legendFormat": "container memory usage",
               "refId": "A",
-              "step": 2
-            },
-            {
-              "expr": "sort_desc(sum(rate(container_cpu_user_seconds_total{name=\"ams_server\"}[1m])) by (name))",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "refId": "B",
-              "step": 2
-            },
-            {
-              "expr": "sort_desc(sum(rate(container_cpu_user_seconds_total{name=\"wowza\"}[1m])) by (name))",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "refId": "C",
-              "step": 2
-            },
-            {
-              "expr": "sort_desc(sum(rate(container_cpu_user_seconds_total{name=\"red5\"}[1m])) by (name))",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "refId": "D",
               "step": 2
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "CPU",
+          "title": "NGINX",
           "tooltip": {
             "msResolution": true,
             "shared": true,
@@ -338,7 +713,7 @@
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": 0,
+              "min": null,
               "show": true
             },
             {
@@ -347,36 +722,28 @@
               "logBase": 1,
               "max": null,
               "min": null,
-              "show": true
+              "show": false
             }
           ]
         },
         {
-          "alert": {
-            "crit": {
-              "op": ">"
-            },
-            "warn": {
-              "op": ">"
-            }
+          "aliasColors": {
+            "container memory usage": "#1F78C1"
           },
-          "alerting": {},
-          "aliasColors": {},
           "bars": false,
           "datasource": "Prometheus",
           "decimals": 2,
           "editable": true,
           "error": false,
           "fill": 1,
-          "id": 3,
+          "id": 17,
           "isNew": true,
           "legend": {
             "alignAsTable": true,
             "avg": true,
             "current": true,
-            "hideEmpty": true,
-            "max": true,
-            "min": true,
+            "max": false,
+            "min": false,
             "show": true,
             "total": false,
             "values": true
@@ -390,43 +757,22 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 6,
+          "span": 3,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "expr": "sort_desc(sum(container_memory_usage_bytes{name=\"nginx_server\"}) by (name))",
+              "expr": "sum(container_memory_usage_bytes{name='ams_server'})/sum(container_memory_usage_bytes)*100",
               "intervalFactor": 2,
-              "legendFormat": "{{name}}",
+              "legendFormat": "container memory usage",
               "refId": "A",
-              "step": 2
-            },
-            {
-              "expr": "sort_desc(sum(container_memory_usage_bytes{name=\"ams_server\"}) by (name))",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "refId": "B",
-              "step": 2
-            },
-            {
-              "expr": "sort_desc(sum(container_memory_usage_bytes{name=\"wowza\"}) by (name))",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "refId": "C",
-              "step": 2
-            },
-            {
-              "expr": "sort_desc(sum(container_memory_usage_bytes{name=\"red5\"}) by (name))",
-              "intervalFactor": 2,
-              "legendFormat": "{{name}}",
-              "refId": "D",
               "step": 2
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Memory usage",
+          "title": "AMS",
           "tooltip": {
             "msResolution": true,
             "shared": true,
@@ -439,7 +785,7 @@
           },
           "yaxes": [
             {
-              "format": "decbytes",
+              "format": "percent",
               "label": null,
               "logBase": 1,
               "max": null,
@@ -452,46 +798,28 @@
               "logBase": 1,
               "max": null,
               "min": null,
-              "show": true
+              "show": false
             }
           ]
-        }
-      ],
-      "title": "CPU usage"
-    },
-    {
-      "collapse": false,
-      "editable": true,
-      "height": "250px",
-      "panels": [
+        },
         {
-          "alert": {
-            "crit": {
-              "op": ">"
-            },
-            "warn": {
-              "op": ">"
-            }
+          "aliasColors": {
+            "container memory usage": "#EF843C"
           },
-          "alerting": {},
-          "aliasColors": {},
           "bars": false,
           "datasource": "Prometheus",
-          "decimals": 0,
+          "decimals": 2,
           "editable": true,
           "error": false,
           "fill": 1,
-          "id": 4,
+          "id": 18,
           "isNew": true,
           "legend": {
             "alignAsTable": true,
-            "avg": false,
+            "avg": true,
             "current": true,
-            "hideEmpty": true,
-            "hideZero": false,
             "max": false,
             "min": false,
-            "rightSide": false,
             "show": true,
             "total": false,
             "values": true
@@ -505,44 +833,22 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 6,
+          "span": 3,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "expr": "nginx_rtmp_model_connected+nginx_rtmp_clients_connected",
+              "expr": "sum(container_memory_usage_bytes{name='wowza'})/sum(container_memory_usage_bytes)*100",
               "intervalFactor": 2,
-              "legendFormat": "nginx-rtmp-module",
-              "metric": "container_cpu_usage_seconds_totalco",
+              "legendFormat": "container memory usage",
               "refId": "A",
-              "step": 2
-            },
-            {
-              "expr": "ams_model_connected+ams_clients_connected",
-              "intervalFactor": 2,
-              "legendFormat": "adobe-media-server",
-              "refId": "B",
-              "step": 2
-            },
-            {
-              "expr": "wowza_model_connected+wowza_clients_connected",
-              "intervalFactor": 2,
-              "legendFormat": "wowza",
-              "refId": "C",
-              "step": 2
-            },
-            {
-              "expr": "red5_model_connected+red5_clients_connected",
-              "intervalFactor": 2,
-              "legendFormat": "red5",
-              "refId": "D",
               "step": 2
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Connected clients",
+          "title": "Wowza",
           "tooltip": {
             "msResolution": true,
             "shared": true,
@@ -555,11 +861,11 @@
           },
           "yaxes": [
             {
-              "format": "none",
+              "format": "percent",
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": 0,
+              "min": null,
               "show": true
             },
             {
@@ -573,31 +879,23 @@
           ]
         },
         {
-          "alert": {
-            "crit": {
-              "op": ">"
-            },
-            "warn": {
-              "op": ">"
-            }
+          "aliasColors": {
+            "container memory usage": "#BF1B00"
           },
-          "alerting": {},
-          "aliasColors": {},
           "bars": false,
           "datasource": "Prometheus",
-          "decimals": 0,
+          "decimals": 2,
           "editable": true,
           "error": false,
           "fill": 1,
-          "id": 5,
+          "id": 19,
           "isNew": true,
           "legend": {
             "alignAsTable": true,
-            "avg": false,
+            "avg": true,
             "current": true,
             "max": false,
             "min": false,
-            "rightSide": false,
             "show": true,
             "total": false,
             "values": true
@@ -611,44 +909,22 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 6,
+          "span": 3,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
-              "expr": "nginx_rtmp_failure_models+nginx_rtmp_client_failures",
+              "expr": "sum(container_memory_usage_bytes{name='red5'})/sum(container_memory_usage_bytes)*100",
               "intervalFactor": 2,
-              "legendFormat": "nginx-rtmp-module",
-              "metric": "nginx_rtmp_client_failures",
+              "legendFormat": "container memory usage",
               "refId": "A",
-              "step": 2
-            },
-            {
-              "expr": "ams_failure_models+ams_client_failures",
-              "intervalFactor": 2,
-              "legendFormat": "adobe-media-server",
-              "refId": "B",
-              "step": 2
-            },
-            {
-              "expr": "wowza_failure_models+wowza_client_failures",
-              "intervalFactor": 2,
-              "legendFormat": "wowza",
-              "refId": "C",
-              "step": 2
-            },
-            {
-              "expr": "red5_failure_models+red5_client_failures",
-              "intervalFactor": 2,
-              "legendFormat": "red5",
-              "refId": "D",
               "step": 2
             }
           ],
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Failures",
+          "title": "Red5",
           "tooltip": {
             "msResolution": true,
             "shared": true,
@@ -661,25 +937,113 @@
           },
           "yaxes": [
             {
-              "format": "none",
+              "format": "percent",
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": 0,
+              "min": null,
               "show": true
             },
             {
-              "format": "none",
+              "format": "short",
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": 0,
-              "show": true
+              "min": null,
+              "show": false
             }
           ]
         }
       ],
-      "title": "CPU row"
+      "showTitle": true,
+      "title": "Memory usage"
+    },
+    {
+      "title": "New row",
+      "height": "250px",
+      "editable": true,
+      "collapse": false,
+      "panels": [
+        {
+          "title": "Total memory usage per instance",
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "graph",
+          "isNew": true,
+          "id": 32,
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "(node_memory_MemTotal-node_memory_MemFree-node_memory_Cached)/node_memory_MemTotal*100",
+              "intervalFactor": 2,
+              "step": 2,
+              "legendFormat": "{{instance}}"
+            }
+          ],
+          "datasource": "Prometheus",
+          "renderer": "flot",
+          "yaxes": [
+            {
+              "label": null,
+              "show": true,
+              "logBase": 1,
+              "min": null,
+              "max": null,
+              "format": "percent"
+            },
+            {
+              "label": null,
+              "show": true,
+              "logBase": 1,
+              "min": null,
+              "max": null,
+              "format": "short"
+            }
+          ],
+          "xaxis": {
+            "show": true
+          },
+          "lines": true,
+          "fill": 1,
+          "linewidth": 2,
+          "points": false,
+          "pointradius": 5,
+          "bars": false,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": true,
+            "total": false,
+            "avg": true,
+            "alignAsTable": true,
+            "rightSide": true
+          },
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "cumulative",
+            "shared": true,
+            "sort": 0,
+            "msResolution": true
+          },
+          "timeFrom": null,
+          "timeShift": null,
+          "aliasColors": {
+            "104.131.2.244:9100": "#EF843C",
+            "104.131.34.198:9100": "#508642",
+            "104.131.26.227:9100": "#447EBC",
+            "45.55.147.128:9100": "#BF1B00"
+          },
+          "seriesOverrides": [],
+          "thresholds": [],
+          "links": []
+        }
+      ]
     },
     {
       "collapse": false,
@@ -687,30 +1051,370 @@
       "height": "250px",
       "panels": [
         {
-          "alert": {
-            "crit": {
-              "op": ">"
-            },
-            "warn": {
-              "op": ">"
-            }
+          "aliasColors": {
+            "conaction failures": "#890F02"
           },
-          "alerting": {},
-          "aliasColors": {},
-          "bars": false,
+          "bars": true,
           "datasource": "Prometheus",
-          "decimals": 1,
+          "decimals": 0,
           "editable": true,
           "error": false,
           "fill": 1,
-          "id": 6,
+          "id": 24,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "hideEmpty": true,
+            "hideZero": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": false,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 3,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "(nginx_rtmp_model_connected+nginx_rtmp_clients_connected)/nginx_rtmp_total_clients*100",
+              "intervalFactor": 2,
+              "legendFormat": "connected clients",
+              "metric": "nginx_rtmp_total_clients",
+              "refId": "A",
+              "step": 2
+            },
+            {
+              "expr": "nginx_rtmp_failure_models+nginx_rtmp_client_failures/nginx_rtmp_total_clients*100",
+              "intervalFactor": 2,
+              "legendFormat": "conaction failures",
+              "refId": "B",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "NGINX",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": "100",
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        },
+        {
+          "aliasColors": {
+            "clients connected": "#1F78C1",
+            "connection failures": "#890F02"
+          },
+          "bars": true,
+          "datasource": "Prometheus",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "id": 25,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": false,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 3,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "(ams_model_connected+ams_clients_connected)/ams_total_clients*100",
+              "intervalFactor": 2,
+              "legendFormat": "clients connected",
+              "metric": "ams_total_clients",
+              "refId": "A",
+              "step": 2
+            },
+            {
+              "expr": "(ams_failure_models+ams_client_failures)/ams_total_clients*100",
+              "intervalFactor": 2,
+              "legendFormat": "connection failures",
+              "refId": "B",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "AMS",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": "100",
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        },
+        {
+          "aliasColors": {
+            "clients connected": "#EF843C",
+            "connection failures": "#890F02"
+          },
+          "bars": true,
+          "datasource": "Prometheus",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "id": 26,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": false,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 3,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "(wowza_model_connected+wowza_clients_connected)/wowza_total_clients*100",
+              "intervalFactor": 2,
+              "legendFormat": "clients connected",
+              "metric": "wowza_total_clients",
+              "refId": "A",
+              "step": 2
+            },
+            {
+              "expr": "(wowza_failure_models+wowza_client_failures)/wowza_total_clients*100",
+              "intervalFactor": 2,
+              "legendFormat": "connection failures",
+              "refId": "B",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Wowza",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": "100",
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        },
+        {
+          "aliasColors": {
+            "client connected": "#BA43A9",
+            "{instance=\"45.55.147.128:9132\",job=\"prometheus\"}": "#BF1B00"
+          },
+          "bars": true,
+          "datasource": "Prometheus",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "id": 27,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": false,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 3,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "(red5_model_connected+red5_clients_connected)/red5_total_clients*100",
+              "intervalFactor": 2,
+              "legendFormat": "client connected",
+              "metric": "red5_total_clients",
+              "refId": "A",
+              "step": 2
+            },
+            {
+              "expr": "(red5_failure_models+red5_client_failures)/red5_total_clients*100",
+              "intervalFactor": 2,
+              "legendFormat": "connection failures",
+              "refId": "B",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Red5",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": "100",
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        }
+      ],
+      "showTitle": true,
+      "title": "Connections"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {
+            "AMS": "#1F78C1",
+            "Red5": "#BF1B00",
+            "Wowza": "#C15C17",
+            "red5_total_model_fps{instance=\"45.55.147.128:9132\",job=\"prometheus\"}": "#BF1B00"
+          },
+          "bars": false,
+          "datasource": "Prometheus",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "id": 28,
           "isNew": true,
           "legend": {
             "alignAsTable": true,
             "avg": true,
             "current": true,
-            "hideEmpty": true,
-            "hideZero": false,
             "max": false,
             "min": false,
             "show": true,
@@ -733,29 +1437,28 @@
             {
               "expr": "nginx_rtmp_total_model_fps",
               "intervalFactor": 2,
-              "legendFormat": "nginx-rtmp-module",
-              "metric": "nginx_rtmp_total_model_fps",
+              "legendFormat": "NGINX",
               "refId": "A",
               "step": 2
             },
             {
               "expr": "ams_total_model_fps",
               "intervalFactor": 2,
-              "legendFormat": "adobe-media-server",
+              "legendFormat": "AMS",
               "refId": "B",
               "step": 2
             },
             {
               "expr": "wowza_total_model_fps",
               "intervalFactor": 2,
-              "legendFormat": "wowza",
+              "legendFormat": "Wowza",
               "refId": "C",
               "step": 2
             },
             {
               "expr": "red5_total_model_fps",
               "intervalFactor": 2,
-              "legendFormat": "red5",
+              "legendFormat": "Red5",
               "refId": "D",
               "step": 2
             }
@@ -763,7 +1466,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Publisher FPS",
+          "title": "Publisher",
           "tooltip": {
             "msResolution": true,
             "shared": true,
@@ -776,11 +1479,11 @@
           },
           "yaxes": [
             {
-              "format": "short",
+              "format": "none",
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": 0,
+              "min": "0",
               "show": true
             },
             {
@@ -789,33 +1492,27 @@
               "logBase": 1,
               "max": null,
               "min": null,
-              "show": true
+              "show": false
             }
           ]
         },
         {
-          "alert": {
-            "crit": {
-              "op": ">"
-            },
-            "warn": {
-              "op": ">"
-            }
+          "aliasColors": {
+            "AMS": "#1F78C1",
+            "Red5": "#BF1B00",
+            "Wowza": "#C15C17"
           },
-          "alerting": {},
-          "aliasColors": {},
           "bars": false,
           "datasource": "Prometheus",
           "editable": true,
           "error": false,
           "fill": 1,
-          "id": 7,
+          "id": 29,
           "isNew": true,
           "legend": {
             "alignAsTable": true,
             "avg": true,
             "current": true,
-            "hideEmpty": true,
             "max": false,
             "min": false,
             "show": true,
@@ -838,29 +1535,28 @@
             {
               "expr": "nginx_rtmp_total_client_fps",
               "intervalFactor": 2,
-              "legendFormat": "nginx-rtmp-module",
-              "metric": "nginx_rtmp_total_client_fps",
+              "legendFormat": "NGINX",
               "refId": "A",
               "step": 2
             },
             {
               "expr": "ams_total_client_fps",
               "intervalFactor": 2,
-              "legendFormat": "adobe-media-server",
+              "legendFormat": "AMS",
               "refId": "B",
               "step": 2
             },
             {
               "expr": "wowza_total_client_fps",
               "intervalFactor": 2,
-              "legendFormat": "wowza",
+              "legendFormat": "Wowza",
               "refId": "C",
               "step": 2
             },
             {
               "expr": "red5_total_client_fps",
               "intervalFactor": 2,
-              "legendFormat": "red5",
+              "legendFormat": "Red5",
               "refId": "D",
               "step": 2
             }
@@ -868,7 +1564,7 @@
           "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "title": "Clients FPS",
+          "title": "Player",
           "tooltip": {
             "msResolution": true,
             "shared": true,
@@ -881,11 +1577,11 @@
           },
           "yaxes": [
             {
-              "format": "short",
+              "format": "none",
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": 0,
+              "min": "0",
               "show": true
             },
             {
@@ -894,12 +1590,13 @@
               "logBase": 1,
               "max": null,
               "min": null,
-              "show": true
+              "show": false
             }
           ]
         }
       ],
-      "title": "Connects row"
+      "showTitle": true,
+      "title": "FPS"
     },
     {
       "collapse": false,
@@ -907,22 +1604,14 @@
       "height": "250px",
       "panels": [
         {
-          "alert": {
-            "crit": {
-              "op": ">"
-            },
-            "warn": {
-              "op": ">"
-            }
-          },
-          "alerting": {},
           "aliasColors": {},
           "bars": false,
           "datasource": "Prometheus",
+          "decimals": 1,
           "editable": true,
           "error": false,
           "fill": 1,
-          "id": 8,
+          "id": 30,
           "isNew": true,
           "legend": {
             "alignAsTable": true,
@@ -930,7 +1619,6 @@
             "current": true,
             "max": false,
             "min": false,
-            "rightSide": false,
             "show": true,
             "total": false,
             "values": true
@@ -944,36 +1632,35 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 4,
+          "span": 12,
           "stack": false,
           "steppedLine": false,
           "targets": [
             {
               "expr": "nginx_rtmp_average_video_time_published -nginx_rtmp_average_video_time_received",
               "intervalFactor": 2,
-              "legendFormat": "nginx-rtmp-module",
-              "metric": "nginx_rtmp_average_video_time_received",
+              "legendFormat": "NGINX",
               "refId": "A",
               "step": 2
             },
             {
               "expr": "ams_average_video_time_published -ams_average_video_time_received",
               "intervalFactor": 2,
-              "legendFormat": "adobe-media-server",
+              "legendFormat": "AMS",
               "refId": "B",
               "step": 2
             },
             {
               "expr": "wowza_average_video_time_published - wowza_average_video_time_received",
               "intervalFactor": 2,
-              "legendFormat": "wowza",
+              "legendFormat": "Wowza",
               "refId": "C",
               "step": 2
             },
             {
               "expr": "red5_average_video_time_published - red5_average_video_time_received",
               "intervalFactor": 2,
-              "legendFormat": "red5",
+              "legendFormat": "Red5",
               "refId": "D",
               "step": 2
             }
@@ -994,11 +1681,11 @@
           },
           "yaxes": [
             {
-              "format": "short",
+              "format": "s",
               "label": null,
               "logBase": 1,
               "max": null,
-              "min": 0,
+              "min": "0",
               "show": true
             },
             {
@@ -1007,220 +1694,12 @@
               "logBase": 1,
               "max": null,
               "min": null,
-              "show": true
-            }
-          ]
-        },
-        {
-          "alert": {
-            "crit": {
-              "op": ">"
-            },
-            "warn": {
-              "op": ">"
-            }
-          },
-          "alerting": {},
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "Prometheus",
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "id": 9,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": false,
-            "current": true,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 4,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "nginx_rtmp_video_bytes_sends - nginx_rtmp_audio_bytes_received",
-              "intervalFactor": 2,
-              "legendFormat": "nginx-rtmp-module",
-              "metric": "nginx_rtmp_audio_bytes_received",
-              "refId": "A",
-              "step": 2
-            },
-            {
-              "expr": "ams_video_bytes_sends - ams_audio_bytes_received",
-              "intervalFactor": 2,
-              "legendFormat": "adobe-media-server",
-              "refId": "B",
-              "step": 2
-            },
-            {
-              "expr": "wowza_video_bytes_sends - wowza_audio_bytes_received",
-              "intervalFactor": 2,
-              "legendFormat": "wowza",
-              "refId": "C",
-              "step": 2
-            },
-            {
-              "expr": "red5_video_bytes_sends - red5_audio_bytes_received",
-              "intervalFactor": 2,
-              "legendFormat": "red5",
-              "refId": "D",
-              "step": 2
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Video bytes lag",
-          "tooltip": {
-            "msResolution": true,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "deckbytes",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ]
-        },
-        {
-          "alert": {
-            "crit": {
-              "op": ">"
-            },
-            "warn": {
-              "op": ">"
-            }
-          },
-          "alerting": {},
-          "aliasColors": {},
-          "bars": false,
-          "datasource": "Prometheus",
-          "editable": true,
-          "error": false,
-          "fill": 1,
-          "id": 10,
-          "isNew": true,
-          "legend": {
-            "alignAsTable": true,
-            "avg": false,
-            "current": true,
-            "max": false,
-            "min": false,
-            "show": true,
-            "total": false,
-            "values": true
-          },
-          "lines": true,
-          "linewidth": 2,
-          "links": [],
-          "nullPointMode": "connected",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "span": 4,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "nginx_rtmp_audio_bytes_sends - nginx_rtmp_audio_bytes_received",
-              "intervalFactor": 2,
-              "legendFormat": "nginx-rtmp-module",
-              "metric": "nginx_rtmp_audio_bytes_received",
-              "refId": "A",
-              "step": 2
-            },
-            {
-              "expr": "ams_audio_bytes_sends - ams_audio_bytes_received",
-              "intervalFactor": 2,
-              "legendFormat": "adobe-media-server",
-              "refId": "B",
-              "step": 2
-            },
-            {
-              "expr": "wowza_audio_bytes_sends - wowza_audio_bytes_received",
-              "intervalFactor": 2,
-              "legendFormat": "wowza",
-              "refId": "C",
-              "step": 2
-            },
-            {
-              "expr": "red5_audio_bytes_sends - red5_audio_bytes_received",
-              "intervalFactor": 2,
-              "legendFormat": "red5",
-              "refId": "D",
-              "step": 2
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "Audio bytes lag",
-          "tooltip": {
-            "msResolution": true,
-            "shared": true,
-            "sort": 0,
-            "value_type": "cumulative"
-          },
-          "type": "graph",
-          "xaxis": {
-            "show": true
-          },
-          "yaxes": [
-            {
-              "format": "deckbytes",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": 0,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
+              "show": false
             }
           ]
         }
       ],
-      "title": "Lag row"
+      "title": "New row"
     }
   ],
   "time": {
