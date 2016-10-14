@@ -295,7 +295,7 @@
               "to": "null"
             }
           ],
-          "span": 3,
+          "span": 2,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -373,7 +373,7 @@
               "to": "null"
             }
           ],
-          "span": 3,
+          "span": 2,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -450,7 +450,7 @@
               "to": "null"
             }
           ],
-          "span": 3,
+          "span": 2,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -528,7 +528,7 @@
               "to": "null"
             }
           ],
-          "span": 3,
+          "span": 2,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -555,97 +555,178 @@
             }
           ],
           "valueName": "avg"
+        },
+        {
+          "title": "EVO",
+          "error": false,
+          "span": 2,
+          "editable": true,
+          "type": "singlestat",
+          "isNew": true,
+          "id": 33,
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "sum(rate(container_cpu_usage_seconds_total{name=\"evo_server\"} [1m]))",
+              "intervalFactor": 2,
+              "step": 4
+            }
+          ],
+          "links": [],
+          "datasource": "Prometheus",
+          "maxDataPoints": 100,
+          "interval": null,
+          "cacheTimeout": null,
+          "format": "percentunit",
+          "prefix": "",
+          "postfix": "",
+          "nullText": null,
+          "valueMaps": [
+            {
+              "value": "null",
+              "op": "=",
+              "text": "N/A"
+            }
+          ],
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "rangeMaps": [
+            {
+              "from": "null",
+              "to": "null",
+              "text": "N/A"
+            }
+          ],
+          "mappingType": 1,
+          "nullPointMode": "connected",
+          "valueName": "avg",
+          "prefixFontSize": "50%",
+          "valueFontSize": "80%",
+          "postfixFontSize": "50%",
+          "thresholds": "",
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(45, 172, 163, 0.97)"
+          ],
+          "sparkline": {
+            "show": false,
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "fillColor": "rgba(31, 118, 189, 0.18)"
+          },
+          "gauge": {
+            "show": true,
+            "minValue": 0,
+            "maxValue": 1,
+            "thresholdMarkers": true,
+            "thresholdLabels": false
+          },
+          "decimals": 2
         }
       ],
       "showTitle": true,
       "title": "CPU Usage"
     },
     {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
       "collapse": false,
+      "editable": true,
+      "height": "250px",
       "panels": [
         {
-          "title": "Total CPU per instance",
-          "error": false,
-          "span": 12,
-          "editable": true,
-          "type": "graph",
-          "isNew": true,
-          "id": 31,
-          "targets": [
-            {
-              "refId": "A",
-              "expr": "100 - (avg by (instance) (irate(node_cpu{job=\"prometheus\",mode=\"idle\"}[5m])) * 100)",
-              "intervalFactor": 2,
-              "step": 2,
-              "legendFormat": "{{instance}}"
-            }
-          ],
+          "aliasColors": {
+            "104.131.2.244:9100": "#C15C17",
+            "104.131.26.227:9100": "#1F78C1",
+            "104.131.34.198:9100": "#508642",
+            "45.55.147.128:9100": "#BF1B00"
+          },
+          "bars": false,
           "datasource": "Prometheus",
-          "renderer": "flot",
-          "yaxes": [
-            {
-              "label": null,
-              "show": true,
-              "logBase": 1,
-              "min": null,
-              "max": null,
-              "format": "short"
-            },
-            {
-              "label": null,
-              "show": true,
-              "logBase": 1,
-              "min": null,
-              "max": null,
-              "format": "short"
-            }
-          ],
-          "xaxis": {
-            "show": true
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "id": 31,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": true,
+            "total": false,
+            "values": true
           },
           "lines": true,
-          "fill": 1,
           "linewidth": 2,
-          "points": false,
-          "pointradius": 5,
-          "bars": false,
-          "stack": false,
-          "percentage": false,
-          "legend": {
-            "show": true,
-            "values": true,
-            "min": false,
-            "max": false,
-            "current": true,
-            "total": false,
-            "avg": true,
-            "alignAsTable": true,
-            "rightSide": true
-          },
+          "links": [],
           "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
           "steppedLine": false,
-          "tooltip": {
-            "value_type": "cumulative",
-            "shared": true,
-            "sort": 0,
-            "msResolution": true
-          },
+          "targets": [
+            {
+              "expr": "100 - (avg by (instance) (irate(node_cpu{job=\"prometheus\",mode=\"idle\"}[5m])) * 100)",
+              "intervalFactor": 2,
+              "legendFormat": "{{instance}}",
+              "refId": "A",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
           "timeFrom": null,
           "timeShift": null,
-          "aliasColors": {
-            "45.55.147.128:9100": "#BF1B00",
-            "104.131.34.198:9100": "#508642",
-            "104.131.26.227:9100": "#1F78C1",
-            "104.131.2.244:9100": "#C15C17"
+          "title": "Total CPU per instance",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
           },
-          "seriesOverrides": [],
-          "thresholds": [],
-          "links": []
+          "type": "graph",
+          "xaxis": {
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
         }
-      ]
+      ],
+      "title": "New row"
     },
     {
       "collapse": false,
@@ -681,7 +762,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 3,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -705,7 +786,10 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "yaxes": [
             {
@@ -757,7 +841,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 3,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -781,7 +865,10 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "yaxes": [
             {
@@ -833,7 +920,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 3,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -857,7 +944,10 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "yaxes": [
             {
@@ -909,7 +999,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 3,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -933,7 +1023,10 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "yaxes": [
             {
@@ -953,32 +1046,22 @@
               "show": false
             }
           ]
-        }
-      ],
-      "showTitle": true,
-      "title": "Memory usage"
-    },
-    {
-      "title": "New row",
-      "height": "250px",
-      "editable": true,
-      "collapse": false,
-      "panels": [
+        },
         {
-          "title": "Total memory usage per instance",
+          "title": "EVO",
           "error": false,
-          "span": 12,
+          "span": 4,
           "editable": true,
           "type": "graph",
           "isNew": true,
-          "id": 32,
+          "id": 34,
           "targets": [
             {
               "refId": "A",
-              "expr": "(node_memory_MemTotal-node_memory_MemFree-node_memory_Cached)/node_memory_MemTotal*100",
+              "expr": "sum(container_memory_usage_bytes{name='evo_server'})/sum(container_memory_usage_bytes)*100",
               "intervalFactor": 2,
               "step": 2,
-              "legendFormat": "{{instance}}"
+              "legendFormat": "container memory usage"
             }
           ],
           "datasource": "Prometheus",
@@ -994,7 +1077,7 @@
             },
             {
               "label": null,
-              "show": true,
+              "show": false,
               "logBase": 1,
               "min": null,
               "max": null,
@@ -1002,7 +1085,10 @@
             }
           ],
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "lines": true,
           "fill": 1,
@@ -1020,30 +1106,119 @@
             "current": true,
             "total": false,
             "avg": true,
-            "alignAsTable": true,
-            "rightSide": true
+            "alignAsTable": true
           },
           "nullPointMode": "connected",
           "steppedLine": false,
           "tooltip": {
-            "value_type": "cumulative",
+            "value_type": "individual",
             "shared": true,
             "sort": 0,
-            "msResolution": true
+            "msResolution": false
           },
           "timeFrom": null,
           "timeShift": null,
           "aliasColors": {
-            "104.131.2.244:9100": "#EF843C",
-            "104.131.34.198:9100": "#508642",
-            "104.131.26.227:9100": "#447EBC",
-            "45.55.147.128:9100": "#BF1B00"
+            "container memory usage": "#6ED0E0"
           },
           "seriesOverrides": [],
           "thresholds": [],
-          "links": []
+          "links": [],
+          "decimals": 2
         }
-      ]
+      ],
+      "showTitle": true,
+      "title": "Memory usage"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {
+            "104.131.2.244:9100": "#EF843C",
+            "104.131.26.227:9100": "#447EBC",
+            "104.131.34.198:9100": "#508642",
+            "45.55.147.128:9100": "#BF1B00"
+          },
+          "bars": false,
+          "datasource": "Prometheus",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "id": 32,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": false,
+            "min": false,
+            "rightSide": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "(node_memory_MemTotal-node_memory_MemFree-node_memory_Cached)/node_memory_MemTotal*100",
+              "intervalFactor": 2,
+              "legendFormat": "{{instance}}",
+              "refId": "A",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Total memory usage per instance",
+          "tooltip": {
+            "msResolution": true,
+            "shared": true,
+            "sort": 0,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "xaxis": {
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            }
+          ]
+        }
+      ],
+      "title": "New row"
     },
     {
       "collapse": false,
@@ -1083,7 +1258,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 3,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1115,7 +1290,10 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "yaxes": [
             {
@@ -1167,7 +1345,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 3,
+          "span": 6,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1199,7 +1377,10 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "yaxes": [
             {
@@ -1251,7 +1432,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 3,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1283,7 +1464,10 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "yaxes": [
             {
@@ -1335,7 +1519,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 3,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1367,7 +1551,10 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "yaxes": [
             {
@@ -1387,6 +1574,93 @@
               "show": false
             }
           ]
+        },
+        {
+          "title": "EVO",
+          "error": false,
+          "span": 4,
+          "editable": true,
+          "type": "graph",
+          "isNew": true,
+          "id": 35,
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "(evo_server_model_connected+evo_server_clients_connected)/evo_server_total_clients*100",
+              "intervalFactor": 2,
+              "step": 2,
+              "legendFormat": "clients connected"
+            },
+            {
+              "expr": "(evo_server_failure_models+evo_server_client_failures)/evo_server_total_clients*100",
+              "intervalFactor": 2,
+              "refId": "B",
+              "step": 2,
+              "legendFormat": "connection failures"
+            }
+          ],
+          "datasource": "Prometheus",
+          "renderer": "flot",
+          "yaxes": [
+            {
+              "label": null,
+              "show": true,
+              "logBase": 1,
+              "min": "0",
+              "max": "100",
+              "format": "percent"
+            },
+            {
+              "label": null,
+              "show": false,
+              "logBase": 1,
+              "min": null,
+              "max": null,
+              "format": "short"
+            }
+          ],
+          "xaxis": {
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
+          },
+          "lines": false,
+          "fill": 1,
+          "linewidth": 2,
+          "points": false,
+          "pointradius": 5,
+          "bars": true,
+          "stack": false,
+          "percentage": false,
+          "legend": {
+            "show": true,
+            "values": true,
+            "min": false,
+            "max": false,
+            "current": true,
+            "total": false,
+            "avg": false,
+            "alignAsTable": true
+          },
+          "nullPointMode": "connected",
+          "steppedLine": false,
+          "tooltip": {
+            "value_type": "individual",
+            "shared": true,
+            "sort": 0,
+            "msResolution": false
+          },
+          "timeFrom": null,
+          "timeShift": null,
+          "aliasColors": {
+            "{instance=\"104.131.105.196:9132\",job=\"prometheus\"}": "#6ED0E0",
+            "clients connected": "#6ED0E0",
+            "connection failures": "#BF1B00"
+          },
+          "seriesOverrides": [],
+          "thresholds": [],
+          "links": []
         }
       ],
       "showTitle": true,
@@ -1395,14 +1669,15 @@
     {
       "collapse": false,
       "editable": true,
-      "height": "250px",
+      "height": "400px",
       "panels": [
         {
           "aliasColors": {
             "AMS": "#1F78C1",
             "Red5": "#BF1B00",
             "Wowza": "#C15C17",
-            "red5_total_model_fps{instance=\"45.55.147.128:9132\",job=\"prometheus\"}": "#BF1B00"
+            "red5_total_model_fps{instance=\"45.55.147.128:9132\",job=\"prometheus\"}": "#BF1B00",
+            "EVO": "#6ED0E0"
           },
           "bars": false,
           "datasource": "Prometheus",
@@ -1461,6 +1736,13 @@
               "legendFormat": "Red5",
               "refId": "D",
               "step": 2
+            },
+            {
+              "expr": "evo_server_total_model_fps",
+              "intervalFactor": 2,
+              "refId": "E",
+              "step": 2,
+              "legendFormat": "EVO"
             }
           ],
           "thresholds": [],
@@ -1475,7 +1757,10 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "yaxes": [
             {
@@ -1500,7 +1785,8 @@
           "aliasColors": {
             "AMS": "#1F78C1",
             "Red5": "#BF1B00",
-            "Wowza": "#C15C17"
+            "Wowza": "#C15C17",
+            "EVO": "#6ED0E0"
           },
           "bars": false,
           "datasource": "Prometheus",
@@ -1559,6 +1845,13 @@
               "legendFormat": "Red5",
               "refId": "D",
               "step": 2
+            },
+            {
+              "expr": "evo_server_total_client_fps",
+              "intervalFactor": 2,
+              "refId": "E",
+              "step": 2,
+              "legendFormat": "EVO"
             }
           ],
           "thresholds": [],
@@ -1573,7 +1866,10 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "yaxes": [
             {
@@ -1601,10 +1897,13 @@
     {
       "collapse": false,
       "editable": true,
-      "height": "250px",
+      "height": "400px",
       "panels": [
         {
-          "aliasColors": {},
+          "aliasColors": {
+            "Wowza": "#E0752D",
+            "EVO": "#6ED0E0"
+          },
           "bars": false,
           "datasource": "Prometheus",
           "decimals": 1,
@@ -1663,6 +1962,13 @@
               "legendFormat": "Red5",
               "refId": "D",
               "step": 2
+            },
+            {
+              "expr": "evo_server_average_video_time_published - evo_server_average_video_time_received",
+              "intervalFactor": 2,
+              "refId": "E",
+              "step": 2,
+              "legendFormat": "EVO"
             }
           ],
           "thresholds": [],
@@ -1677,7 +1983,10 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true
+            "show": true,
+            "mode": "time",
+            "name": null,
+            "values": []
           },
           "yaxes": [
             {

@@ -39,4 +39,8 @@ scrape_configs:
                       '[node-exporter IP]:[node-exporter port]',
                       '[advisor ip]:[advisor port]',
                       '[stress test ip]:[stress test port]',
+                      # EVO
+                       '[node-exporter IP]:[node-exporter port]',
+                       '[advisor ip]:[advisor port]',
+                       '[stress test ip]:[stress test port]',
                       ]

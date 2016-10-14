@@ -1,0 +1,29 @@
+version: '2'
+services:
+  evo_server:
+    build:
+      context: ./
+    container_name: "evo_server"
+    image: flexconstructor/evo
+    expose:
+      - 1935
+  stress:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: stress-test-client
+    links:
+      - evo_server:rtmp_server
+    command: [go-wrapper,
+              run,
+              -flv_file,
+              /opt/video/sample.flv,
+              -server, evo_server, -redis ,
+              "[prometheus droplet IP]:[redis db port]"]
+  cadvisor:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: cadvisor
+  node-exporter:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: node-exporter

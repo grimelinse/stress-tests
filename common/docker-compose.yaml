@@ -6,7 +6,7 @@ services:
     ports:
       - '9100:9100'
   cadvisor:
-    image: google/cadvisor
+    image: google/cadvisor:v0.24.1
     container_name: google_advisor
     volumes:
       - /:/rootfs:ro
