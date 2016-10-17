@@ -20,8 +20,8 @@ services:
     command: [go-wrapper,
               run,
               -flv_file,
-              /opt/video/sample.flv,
-              -server, wowza, -redis ,
+               /opt/video/earth.flv,
+              -server, wowza, -redis,
               "[redis db ip]:[redis db port]"]
   cadvisor:
     extends:

@@ -16,7 +16,7 @@ services:
     command: [go-wrapper,
               run,
               -flv_file,
-              /opt/video/sample.flv,
+               /opt/video/earth.flv,
               -server, evo_server, -redis ,
               "[prometheus droplet IP]:[redis db port]"]
   cadvisor:

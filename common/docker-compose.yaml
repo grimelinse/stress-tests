@@ -16,7 +16,9 @@ services:
     ports:
       - '8080:8080'
   stress-test-client:
-    image: quay.io/instrumentisto/rtmp-bot:latest
+    build:
+      context: ./
+    image: rtmp-bot
     container_name: stress-test-client
     ports:
       - '9132:9132'

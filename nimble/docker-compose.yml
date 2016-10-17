@@ -1,27 +1,26 @@
 version: '2'
 services:
-  ams_server:
-    container_name: "ams_server"
-    image: "ams"
-    build:
-      context: ./
+  nimble:
+    container_name: "nimble"
+    image: rjrivero/nimble
+    environment:
+      - WMSPANEL_USER=flexconstructor@gmail.com
+      - WMSPANEL_PASS=OEMY7jtyb/I
     ports:
-      - '1935:1935'
-      - '1111:1111'
-      - '80:80'
-      - '443:443'
+      - "1935:1935"
+      - "8081:8081"
   stress:
     extends:
       file: ../common/docker-compose.yaml
       service: stress-test-client
     links:
-      - ams_server:rtmp_server
+      - nimble:rtmp_server
     command: [go-wrapper,
               run,
               -flv_file,
-               /opt/video/earth.flv,
-              -server, ams, -redis ,
-              "[prometheus droplet IP]:[redis db port]"]
+              /opt/video/earth.flv,
+              -server, nimble, -redis,
+              "[redis db ip]:[redis db port]"]
   cadvisor:
     extends:
       file: ../common/docker-compose.yaml

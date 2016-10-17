@@ -557,17 +557,95 @@
           "valueName": "avg"
         },
         {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(45, 172, 163, 0.97)"
+          ],
+          "datasource": "Prometheus",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 1,
+            "minValue": 0,
+            "show": true,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 33,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 2,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "expr": "sum(rate(container_cpu_usage_seconds_total{name=\"evo_server\"} [1m]))",
+              "intervalFactor": 2,
+              "refId": "A",
+              "step": 4
+            }
+          ],
+          "thresholds": "",
           "title": "EVO",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "title": "Nimble",
           "error": false,
           "span": 2,
           "editable": true,
           "type": "singlestat",
           "isNew": true,
-          "id": 33,
+          "id": 36,
           "targets": [
             {
               "refId": "A",
-              "expr": "sum(rate(container_cpu_usage_seconds_total{name=\"evo_server\"} [1m]))",
+              "expr": "sum(rate(container_cpu_usage_seconds_total{name=\"nimble\"} [1m]))",
               "intervalFactor": 2,
               "step": 4
             }
@@ -617,7 +695,7 @@
           "colors": [
             "rgba(245, 54, 54, 0.9)",
             "rgba(237, 129, 40, 0.89)",
-            "rgba(45, 172, 163, 0.97)"
+            "rgba(159, 45, 172, 0.97)"
           ],
           "sparkline": {
             "show": false,
@@ -648,7 +726,9 @@
             "104.131.2.244:9100": "#C15C17",
             "104.131.26.227:9100": "#1F78C1",
             "104.131.34.198:9100": "#508642",
-            "45.55.147.128:9100": "#BF1B00"
+            "45.55.147.128:9100": "#BF1B00",
+            "104.131.103.202:9100": "#0A437C",
+            "159.203.89.97:9100": "#BA43A9"
           },
           "bars": false,
           "datasource": "Prometheus",
@@ -701,9 +781,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -762,7 +842,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 6,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -786,9 +866,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -841,7 +921,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 6,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -865,9 +945,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -944,9 +1024,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -1023,9 +1103,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -1048,17 +1128,96 @@
           ]
         },
         {
+          "aliasColors": {
+            "container memory usage": "#6ED0E0"
+          },
+          "bars": false,
+          "datasource": "Prometheus",
+          "decimals": 2,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "id": 34,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "sum(container_memory_usage_bytes{name='evo_server'})/sum(container_memory_usage_bytes)*100",
+              "intervalFactor": 2,
+              "legendFormat": "container memory usage",
+              "refId": "A",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
           "title": "EVO",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        },
+        {
+          "title": "Nimble",
           "error": false,
           "span": 4,
           "editable": true,
           "type": "graph",
           "isNew": true,
-          "id": 34,
+          "id": 37,
           "targets": [
             {
               "refId": "A",
-              "expr": "sum(container_memory_usage_bytes{name='evo_server'})/sum(container_memory_usage_bytes)*100",
+              "expr": "sum(container_memory_usage_bytes{name='nimble'})/sum(container_memory_usage_bytes)*100",
               "intervalFactor": 2,
               "step": 2,
               "legendFormat": "container memory usage"
@@ -1119,7 +1278,8 @@
           "timeFrom": null,
           "timeShift": null,
           "aliasColors": {
-            "container memory usage": "#6ED0E0"
+            "{}": "#BA43A9",
+            "container memory usage": "#BA43A9"
           },
           "seriesOverrides": [],
           "thresholds": [],
@@ -1140,7 +1300,10 @@
             "104.131.2.244:9100": "#EF843C",
             "104.131.26.227:9100": "#447EBC",
             "104.131.34.198:9100": "#508642",
-            "45.55.147.128:9100": "#BF1B00"
+            "45.55.147.128:9100": "#BF1B00",
+            "104.131.26.77:9100": "#BA43A9",
+            "104.131.103.202:9100": "#0A437C",
+            "159.203.89.97:9100": "#EF843C"
           },
           "bars": false,
           "datasource": "Prometheus",
@@ -1193,9 +1356,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -1258,7 +1421,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 6,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1290,9 +1453,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -1345,7 +1508,7 @@
           "points": false,
           "renderer": "flot",
           "seriesOverrides": [],
-          "span": 6,
+          "span": 4,
           "stack": false,
           "steppedLine": false,
           "targets": [
@@ -1377,9 +1540,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -1464,9 +1627,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -1551,9 +1714,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -1576,23 +1739,110 @@
           ]
         },
         {
+          "aliasColors": {
+            "clients connected": "#6ED0E0",
+            "connection failures": "#BF1B00",
+            "{instance=\"104.131.105.196:9132\",job=\"prometheus\"}": "#6ED0E0"
+          },
+          "bars": true,
+          "datasource": "Prometheus",
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "id": 35,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": false,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "(evo_server_model_connected+evo_server_clients_connected)/evo_server_total_clients*100",
+              "intervalFactor": 2,
+              "legendFormat": "clients connected",
+              "refId": "A",
+              "step": 2
+            },
+            {
+              "expr": "(evo_server_failure_models+evo_server_client_failures)/evo_server_total_clients*100",
+              "intervalFactor": 2,
+              "legendFormat": "connection failures",
+              "refId": "B",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
           "title": "EVO",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": "100",
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        },
+        {
+          "title": "Nimble",
           "error": false,
           "span": 4,
           "editable": true,
           "type": "graph",
           "isNew": true,
-          "id": 35,
+          "id": 38,
           "targets": [
             {
               "refId": "A",
-              "expr": "(evo_server_model_connected+evo_server_clients_connected)/evo_server_total_clients*100",
+              "expr": "(nimble_model_connected+nimble_clients_connected)/nimble_total_clients*100",
               "intervalFactor": 2,
               "step": 2,
               "legendFormat": "clients connected"
             },
             {
-              "expr": "(evo_server_failure_models+evo_server_client_failures)/evo_server_total_clients*100",
+              "expr": "(nimble_failure_models+nimble_client_failures)/nimble_total_clients*100",
               "intervalFactor": 2,
               "refId": "B",
               "step": 2,
@@ -1653,11 +1903,7 @@
           },
           "timeFrom": null,
           "timeShift": null,
-          "aliasColors": {
-            "{instance=\"104.131.105.196:9132\",job=\"prometheus\"}": "#6ED0E0",
-            "clients connected": "#6ED0E0",
-            "connection failures": "#BF1B00"
-          },
+          "aliasColors": {},
           "seriesOverrides": [],
           "thresholds": [],
           "links": []
@@ -1674,10 +1920,10 @@
         {
           "aliasColors": {
             "AMS": "#1F78C1",
+            "EVO": "#6ED0E0",
             "Red5": "#BF1B00",
             "Wowza": "#C15C17",
-            "red5_total_model_fps{instance=\"45.55.147.128:9132\",job=\"prometheus\"}": "#BF1B00",
-            "EVO": "#6ED0E0"
+            "red5_total_model_fps{instance=\"45.55.147.128:9132\",job=\"prometheus\"}": "#BF1B00"
           },
           "bars": false,
           "datasource": "Prometheus",
@@ -1740,9 +1986,16 @@
             {
               "expr": "evo_server_total_model_fps",
               "intervalFactor": 2,
+              "legendFormat": "EVO",
               "refId": "E",
+              "step": 2
+            },
+            {
+              "expr": "nimble_total_model_fps",
+              "intervalFactor": 2,
+              "refId": "F",
               "step": 2,
-              "legendFormat": "EVO"
+              "legendFormat": "Nimble"
             }
           ],
           "thresholds": [],
@@ -1757,9 +2010,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -1784,9 +2037,9 @@
         {
           "aliasColors": {
             "AMS": "#1F78C1",
+            "EVO": "#6ED0E0",
             "Red5": "#BF1B00",
-            "Wowza": "#C15C17",
-            "EVO": "#6ED0E0"
+            "Wowza": "#C15C17"
           },
           "bars": false,
           "datasource": "Prometheus",
@@ -1849,9 +2102,16 @@
             {
               "expr": "evo_server_total_client_fps",
               "intervalFactor": 2,
+              "legendFormat": "EVO",
               "refId": "E",
+              "step": 2
+            },
+            {
+              "expr": "nimble_total_client_fps",
+              "intervalFactor": 2,
+              "refId": "F",
               "step": 2,
-              "legendFormat": "EVO"
+              "legendFormat": "Nimble"
             }
           ],
           "thresholds": [],
@@ -1866,9 +2126,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [
@@ -1901,8 +2161,8 @@
       "panels": [
         {
           "aliasColors": {
-            "Wowza": "#E0752D",
-            "EVO": "#6ED0E0"
+            "EVO": "#6ED0E0",
+            "Wowza": "#E0752D"
           },
           "bars": false,
           "datasource": "Prometheus",
@@ -1966,9 +2226,16 @@
             {
               "expr": "evo_server_average_video_time_published - evo_server_average_video_time_received",
               "intervalFactor": 2,
+              "legendFormat": "EVO",
               "refId": "E",
+              "step": 2
+            },
+            {
+              "expr": "nimble_average_video_time_published - nimble_average_video_time_received",
+              "intervalFactor": 2,
+              "refId": "F",
               "step": 2,
-              "legendFormat": "EVO"
+              "legendFormat": "Nimble"
             }
           ],
           "thresholds": [],
@@ -1983,9 +2250,9 @@
           },
           "type": "graph",
           "xaxis": {
-            "show": true,
             "mode": "time",
             "name": null,
+            "show": true,
             "values": []
           },
           "yaxes": [

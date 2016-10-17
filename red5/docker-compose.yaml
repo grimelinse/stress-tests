@@ -15,7 +15,7 @@ services:
     command: [go-wrapper,
               run,
               -flv_file,
-              /opt/video/sample.flv,
+               /opt/video/earth.flv,
               -server, red5, -redis ,
               "[redis db ip]:[redis db port]"]
   cadvisor:
