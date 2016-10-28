@@ -46,5 +46,9 @@ scrape_configs:
                       # Nimbl
                       '[node-exporter IP]:[node-exporter port]',
                       '[advisor ip]:[advisor port]',
-                      '[stress test ip]:[stress test port]'
+                      '[stress test ip]:[stress test port]',
                       ]
+                      # Flussonic
+                      '[node-exporter IP]:[node-exporter port]',
+                      '[advisor ip]:[advisor port]',
+                      '[stress test ip]:[stress test port]',

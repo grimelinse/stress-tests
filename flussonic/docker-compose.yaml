@@ -1,0 +1,29 @@
+version: '2'
+services:
+  flussonic:
+    build:
+      context: ./
+    container_name: "flussonic"
+    image: flexconstructor/flussonic
+    expose:
+      - 1935
+  stress:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: stress-test-client
+    links:
+      - flussonic:rtmp_server
+    command: [go-wrapper,
+              run,
+              -flv_file,
+               /opt/video/sample.flv,
+              -server, flussonic, -redis ,
+              "[redis db ip]:[rdis db port]"]
+  cadvisor:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: cadvisor
+  node-exporter:
+    extends:
+      file: ../common/docker-compose.yaml
+      service: node-exporter

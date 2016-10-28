@@ -295,7 +295,7 @@
               "to": "null"
             }
           ],
-          "span": 2,
+          "span": 6,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -373,7 +373,7 @@
               "to": "null"
             }
           ],
-          "span": 2,
+          "span": 6,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -450,7 +450,7 @@
               "to": "null"
             }
           ],
-          "span": 2,
+          "span": 6,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -528,7 +528,7 @@
               "to": "null"
             }
           ],
-          "span": 2,
+          "span": 6,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -606,7 +606,7 @@
               "to": "null"
             }
           ],
-          "span": 2,
+          "span": 6,
           "sparkline": {
             "fillColor": "rgba(31, 118, 189, 0.18)",
             "full": false,
@@ -635,19 +635,97 @@
           "valueName": "avg"
         },
         {
-          "title": "Nimble",
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(159, 45, 172, 0.97)"
+          ],
+          "datasource": "Prometheus",
+          "decimals": 2,
+          "editable": true,
           "error": false,
-          "span": 2,
+          "format": "percentunit",
+          "gauge": {
+            "maxValue": 1,
+            "minValue": 0,
+            "show": true,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "id": 36,
+          "interval": null,
+          "isNew": true,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "span": 6,
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "targets": [
+            {
+              "expr": "sum(rate(container_cpu_usage_seconds_total{name=\"nimble\"} [1m]))",
+              "intervalFactor": 2,
+              "refId": "A",
+              "step": 4
+            }
+          ],
+          "thresholds": "",
+          "title": "Nimble",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "title": "Flussonic",
+          "error": false,
+          "span": 12,
           "editable": true,
           "type": "singlestat",
           "isNew": true,
-          "id": 36,
+          "id": 39,
           "targets": [
             {
               "refId": "A",
-              "expr": "sum(rate(container_cpu_usage_seconds_total{name=\"nimble\"} [1m]))",
-              "intervalFactor": 2,
-              "step": 4
+              "expr": "sum(rate(container_cpu_usage_seconds_total{name=\"flussonic\"} [1m]))",
+              "intervalFactor": 4,
+              "step": 8
             }
           ],
           "links": [],
@@ -695,7 +773,7 @@
           "colors": [
             "rgba(245, 54, 54, 0.9)",
             "rgba(237, 129, 40, 0.89)",
-            "rgba(159, 45, 172, 0.97)"
+            "rgba(30, 7, 235, 0.97)"
           ],
           "sparkline": {
             "show": false,
@@ -709,8 +787,7 @@
             "maxValue": 1,
             "thresholdMarkers": true,
             "thresholdLabels": false
-          },
-          "decimals": 2
+          }
         }
       ],
       "showTitle": true,
@@ -723,12 +800,12 @@
       "panels": [
         {
           "aliasColors": {
+            "104.131.103.202:9100": "#0A437C",
             "104.131.2.244:9100": "#C15C17",
             "104.131.26.227:9100": "#1F78C1",
             "104.131.34.198:9100": "#508642",
-            "45.55.147.128:9100": "#BF1B00",
-            "104.131.103.202:9100": "#0A437C",
-            "159.203.89.97:9100": "#BA43A9"
+            "159.203.89.97:9100": "#BA43A9",
+            "45.55.147.128:9100": "#BF1B00"
           },
           "bars": false,
           "datasource": "Prometheus",
@@ -1207,17 +1284,97 @@
           ]
         },
         {
-          "title": "Nimble",
+          "aliasColors": {
+            "container memory usage": "#BA43A9",
+            "{}": "#BA43A9"
+          },
+          "bars": false,
+          "datasource": "Prometheus",
+          "decimals": 2,
+          "editable": true,
           "error": false,
+          "fill": 1,
+          "id": 37,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
           "span": 4,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "expr": "sum(container_memory_usage_bytes{name='nimble'})/sum(container_memory_usage_bytes)*100",
+              "intervalFactor": 2,
+              "legendFormat": "container memory usage",
+              "refId": "A",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Nimble",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        },
+        {
+          "title": "Flussonic",
+          "error": false,
+          "span": 12,
           "editable": true,
           "type": "graph",
           "isNew": true,
-          "id": 37,
+          "id": 40,
           "targets": [
             {
               "refId": "A",
-              "expr": "sum(container_memory_usage_bytes{name='nimble'})/sum(container_memory_usage_bytes)*100",
+              "expr": "sum(container_memory_usage_bytes{name='flussonic'})/sum(container_memory_usage_bytes)*100",
               "intervalFactor": 2,
               "step": 2,
               "legendFormat": "container memory usage"
@@ -1261,7 +1418,7 @@
             "show": true,
             "values": true,
             "min": false,
-            "max": false,
+            "max": true,
             "current": true,
             "total": false,
             "avg": true,
@@ -1278,13 +1435,12 @@
           "timeFrom": null,
           "timeShift": null,
           "aliasColors": {
-            "{}": "#BA43A9",
-            "container memory usage": "#BA43A9"
+            "{}": "#0A437C",
+            "container memory usage": "#0A437C"
           },
           "seriesOverrides": [],
           "thresholds": [],
-          "links": [],
-          "decimals": 2
+          "links": []
         }
       ],
       "showTitle": true,
@@ -1297,13 +1453,13 @@
       "panels": [
         {
           "aliasColors": {
+            "104.131.103.202:9100": "#0A437C",
             "104.131.2.244:9100": "#EF843C",
             "104.131.26.227:9100": "#447EBC",
-            "104.131.34.198:9100": "#508642",
-            "45.55.147.128:9100": "#BF1B00",
             "104.131.26.77:9100": "#BA43A9",
-            "104.131.103.202:9100": "#0A437C",
-            "159.203.89.97:9100": "#EF843C"
+            "104.131.34.198:9100": "#508642",
+            "159.203.89.97:9100": "#EF843C",
+            "45.55.147.128:9100": "#BF1B00"
           },
           "bars": false,
           "datasource": "Prometheus",
@@ -1826,27 +1982,110 @@
           ]
         },
         {
-          "title": "Nimble",
-          "error": false,
-          "span": 4,
+          "aliasColors": {},
+          "bars": true,
+          "datasource": "Prometheus",
           "editable": true,
-          "type": "graph",
-          "isNew": true,
+          "error": false,
+          "fill": 1,
           "id": 38,
+          "isNew": true,
+          "legend": {
+            "alignAsTable": true,
+            "avg": false,
+            "current": true,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": false,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "connected",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 4,
+          "stack": false,
+          "steppedLine": false,
           "targets": [
             {
-              "refId": "A",
               "expr": "(nimble_model_connected+nimble_clients_connected)/nimble_total_clients*100",
               "intervalFactor": 2,
-              "step": 2,
-              "legendFormat": "clients connected"
+              "legendFormat": "clients connected",
+              "refId": "A",
+              "step": 2
             },
             {
               "expr": "(nimble_failure_models+nimble_client_failures)/nimble_total_clients*100",
               "intervalFactor": 2,
+              "legendFormat": "connection failures",
+              "refId": "B",
+              "step": 2
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Nimble",
+          "tooltip": {
+            "msResolution": false,
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": "100",
+              "min": "0",
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ]
+        },
+        {
+          "title": "Flussonic",
+          "error": false,
+          "span": 12,
+          "editable": true,
+          "type": "graph",
+          "isNew": true,
+          "id": 41,
+          "targets": [
+            {
+              "refId": "A",
+              "expr": "(flussonic_model_connected+flussonic_clients_connected)/flussonic_total_clients*100",
+              "intervalFactor": 2,
+              "step": 2,
+              "legendFormat": "connected clients"
+            },
+            {
+              "expr": "flussonic_failure_models+flussonic_client_failures/flussonic_total_clients*100",
+              "intervalFactor": 2,
               "refId": "B",
               "step": 2,
-              "legendFormat": "connection failures"
+              "legendFormat": "conaction failures"
             }
           ],
           "datasource": "Prometheus",
@@ -1891,7 +2130,7 @@
             "current": true,
             "total": false,
             "avg": false,
-            "alignAsTable": true
+            "hideEmpty": true
           },
           "nullPointMode": "connected",
           "steppedLine": false,
@@ -1903,10 +2142,14 @@
           },
           "timeFrom": null,
           "timeShift": null,
-          "aliasColors": {},
+          "aliasColors": {
+            "connected clients": "#0A437C",
+            "conaction failures": "#BF1B00"
+          },
           "seriesOverrides": [],
           "thresholds": [],
-          "links": []
+          "links": [],
+          "decimals": 0
         }
       ],
       "showTitle": true,
@@ -1993,9 +2236,16 @@
             {
               "expr": "nimble_total_model_fps",
               "intervalFactor": 2,
+              "legendFormat": "Nimble",
               "refId": "F",
+              "step": 2
+            },
+            {
+              "expr": "flussonic_total_model_fps",
+              "intervalFactor": 2,
+              "refId": "G",
               "step": 2,
-              "legendFormat": "Nimble"
+              "legendFormat": "Flussonic"
             }
           ],
           "thresholds": [],
@@ -2109,9 +2359,16 @@
             {
               "expr": "nimble_total_client_fps",
               "intervalFactor": 2,
+              "legendFormat": "Nimble",
               "refId": "F",
+              "step": 2
+            },
+            {
+              "expr": "flussonic_total_client_fps",
+              "intervalFactor": 2,
+              "refId": "G",
               "step": 2,
-              "legendFormat": "Nimble"
+              "legendFormat": "Flussonic"
             }
           ],
           "thresholds": [],
@@ -2233,9 +2490,16 @@
             {
               "expr": "nimble_average_video_time_published - nimble_average_video_time_received",
               "intervalFactor": 2,
+              "legendFormat": "Nimble",
               "refId": "F",
+              "step": 2
+            },
+            {
+              "expr": "flussonic_average_video_time_published - flussonic_average_video_time_received",
+              "intervalFactor": 2,
+              "refId": "G",
               "step": 2,
-              "legendFormat": "Nimble"
+              "legendFormat": "Flussonic"
             }
           ],
           "thresholds": [],
